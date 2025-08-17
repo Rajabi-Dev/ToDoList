@@ -1,0 +1,317 @@
+body {
+    --color-bg: #f5f7fa;
+    --color-bg-box: #ffffff;
+    --color-text: #333;
+    --color-title: #222;
+    --color-primary: #007bff;
+    --color-success: #28a745;
+    --color-danger: crimson;
+    --color-task-bg: #e2e2e2;
+    --color-null-bg: #eeeeee;
+    --color-border: #ccc;
+    --color-shadow: rgba(0, 0, 0, 0.05);
+    --color-time: dodgerblue;
+}
+
+body.dark {
+    --color-bg: #121212;
+    --color-bg-box: #1e1e1e;
+    --color-text: #e0e0e0;
+    --color-title: #ffffff;
+    --color-primary: #3b82f6;
+    --color-success: #22c55e;
+    --color-danger: #ef4444;
+    --color-task-bg: #2a2a2a;
+    --color-null-bg: #2a2a2a;
+    --color-border: #2f2f2f;
+    --color-shadow: rgba(255, 255, 255, 0.03);
+    --color-time: #60a5fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg: #f6f9fc;
+    --color-bg-box: #ffffff;
+    --color-text: #333333;
+    --color-title: #1a1a1a;
+    --color-primary: #3b82f6;
+    --color-success: #22c55e;
+    --color-danger: #ef4444;
+    --color-task-bg: #f1f5f9;
+    --color-null-bg: #e2e8f0;
+    --color-border: #d1d5db;
+    --color-shadow: rgba(0, 0, 0, 0.05);
+    --color-time: #2563eb;
+    --transition: all 0.3s ease;
+    --font-main: "Vazirmatn", sans-serif;
+}
+
+/* Base styles */
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: var(--transition);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* Container layout */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Title animation */
+.todo__title {
+    font-size: 40px;
+    padding-bottom: 40px;
+    font-weight: 700;
+    color: var(--color-title);
+    animation: growSize 2s infinite ease-in-out;
+    border-bottom: 2px solid var(--color-border);
+}
+
+/* Glassmorphism card */
+.todo {
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 12px 35px var(--color-shadow);
+}
+
+/* Add task */
+.addtask {
+    width: 50%;
+}
+
+.addtask__form {
+    padding: 30px;
+    border-radius: 15px;
+    background: var(--color-bg-box);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.box__title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    padding-bottom: 20px;
+    color: var(--color-primary);
+    position: relative;
+}
+
+.addtask__div {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-border);
+    background: #f9fafb;
+    transition: var(--transition);
+}
+
+.addtask__name,
+.addtask__time {
+    padding: 10px 15px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    color: var(--color-text);
+    background: transparent;
+}
+
+.addtask__div:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.addtask__submit {
+    padding: 12px 16px;
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.addtask__submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* View section */
+.view {
+    width: 50%;
+}
+
+.viewtask {
+    max-height: 400px;
+    height: 245px;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 15px;
+    background: var(--color-bg-box);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.02);
+}
+
+/* Task box */
+.task {
+    padding: 18px 20px;
+    margin-bottom: 15px;
+    background: var(--color-task-bg);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.task:hover {
+    transform: scale(1.01);
+    background: #e2e8f0;
+}
+
+.task__effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: scaleX(0%);
+    transform-origin: left;
+    border-radius: inherit;
+    z-index: 0;
+    background: linear-gradient(to right, #5379ff, var(--color-primary));
+    transition: var(--transition);
+}
+
+.task__title,
+.task__action {
+    position: relative;
+    z-index: 2;
+}
+
+.task__title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--color-title);
+}
+
+.task__action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task__status {
+    accent-color: var(--color-success);
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.task__status:hover {
+    transform: scale(1.2);
+}
+
+.task__del {
+    color: var(--color-danger);
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.task__del:hover {
+    transform: rotate(360deg);
+}
+
+.task__time {
+    color: var(--color-time);
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.task__time:hover {
+    opacity: 0.7;
+}
+
+/* Empty task box */
+.task-null {
+    height: 100%;
+    padding: 20px;
+    background: var(--color-null-bg);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-style: italic;
+}
+
+
+.theme-toggle {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 100;
+}
+
+.toggle {
+    width: 60px;
+    height: 30px;
+    background-color: #cfd8dc;
+    display: block;
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.toggle-ball {
+    width: 26px;
+    height: 26px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.3s ease, background 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#themeSwitch:checked + .toggle {
+    background-color: #4f46e5;
+}
+
+#themeSwitch:checked + .toggle .toggle-ball {
+    left: 32px;
+    background-color: #f1f5f9;
+}
+
+#themeSwitch {
+    display: none;
+}
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="icon" type="image/x-icon"
+          href="https://img.icons8.com/external-flat-design-circle/64/external-Todo-List-business-flat-design-circle.png">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+
+<div id="app" style="display: none">
+    <div class="theme-toggle">
+        <input type="checkbox" id="themeSwitch"/>
+        <label for="themeSwitch" class="toggle">
+            <span class="toggle-ball"></span>
+        </label>
+    </div>
+
+    <div class="container">
+        <h2 class="todo__title">Todo List</h2>
+        <div class="todo">
+            <div class="addtask">
+                <h3 class="box__title">
+                    Add Task
+                </h3>
+                <form action="" id="addTaskForm" class="addtask__form">
+                    <input id="addTaskName" class="addtask__div addtask__name" type="text" placeholder="TaskName">
+                    <input id="addTaskTime" class="addtask__div addtask__time" type="text" placeholder="TaskTime">
+                    <button class="addtask__div addtask__submit">Submit</button>
+                </form>
+            </div>
+            <div class="view">
+                <h3 class="box__title">
+                    View Task
+                </h3>
+                <div id="viewTask" class="viewtask">
+                    <!--                <div class="task">-->
+                    <!--                <div class="task__effect"></div>-->
+                    <!--                    <p class="task__title">Task Test Html</p>-->
+                    <!--                    <div class="task__action">-->
+                    <!--                        <span class="task__time fa-solid fa-play"></span>-->
+                    <!--                        <span class="task__time fa-solid fa-pause"></span>-->
+                    <!--                        <input class="task__status" type="checkbox">-->
+                    <!--                        <span class="task__del fa-solid fa-xmark"></span>-->
+                    <!--                    </div>-->
+                    <!--                </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="scripts/bundle.js"></script>
+</body>
+</html>
